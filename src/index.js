@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 const API_KEY = 'AIzaSyCzhtakiKoBaZIZkKJ7u737_64jm0sLa_k';
 
 //Create a new component.  This component should produce some HTML.
 class App extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = { videos: [] };
 
@@ -16,10 +17,12 @@ class App extends Component {
 			this.setState({ videos });
 		});
 	}
-	render(){
+
+	render() {
 		return (
 			<div>
 				<SearchBar />
+				<VideoList videos={this.state.videos}/>
 			</div>
 		);
 	}
